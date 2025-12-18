@@ -25,8 +25,8 @@ const Inquiries = () => {
     additionalDetails: '',
   });
 
-  const [countryCode, setCountryCode] = useState({ 
-    value: '+234', 
+  const [countryCode, setCountryCode] = useState({
+    value: '+234',
     code: 'NG',
     country: 'Nigeria',
     FlagComponent: flags.NG
@@ -134,7 +134,7 @@ There are no cut-off hours for our lead planner — you're never charged extra i
       {/* Hero Section */}
       <section className="relative w-full h-[70vh]">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${inquiryHeroBg})` }}
         >
@@ -149,10 +149,10 @@ There are no cut-off hours for our lead planner — you're never charged extra i
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <img src={logo} alt="Hephzibah Luxe" className="w-20 h-20 lg:w-24 lg:h-24" />
             </div>
-            
+
             {/* Rotating Text */}
-            <svg 
-              className="w-full h-full rotating-text" 
+            <svg
+              className="w-full h-full rotating-text"
               viewBox="0 0 200 200"
             >
               <defs>
@@ -164,14 +164,14 @@ There are no cut-off hours for our lead planner — you're never charged extra i
                      a 75,75 0 1,1 -150,0"
                 />
               </defs>
-              <text 
+              <text
                 fill="white"
                 fontSize="14"
                 fontFamily="Editors Note, serif"
                 fontWeight="400"
               >
                 <textPath href="#circlePath" textLength="470" spacing="auto">
-                  • WORK WITH US • WORK WITH US • WORK WITH US
+                  • WORK WITH US • WORK WITH US • WORK WITH US&#160;
                 </textPath>
               </text>
             </svg>
@@ -184,7 +184,7 @@ There are no cut-off hours for our lead planner — you're never charged extra i
         <div className="max-w-7xl mx-auto">
           <div className="max-w-5xl">
             {/* Main Heading */}
-            <h1 
+            <h1
               className="font-editors-note text-secondary text-6xl lg:text-7xl xl:text-8xl italic mb-8"
               style={{ fontWeight: 100 }}
             >
@@ -197,8 +197,8 @@ There are no cut-off hours for our lead planner — you're never charged extra i
                 We value each inquiry deeply, and we're excited to explore how we can bring grace, beauty, and excellence to your event. From weddings to milestone birthdays to elevated corporate gatherings, we design experiences that are intentional, refined, and unforgettable. Kindly share your details below, and our team will connect with you within 1-2 business days.
               </p>
               <p className="font-newsreader text-primary text-base font-light">
-                Have a quick question? View our <a 
-                  href="#faqs" 
+                Have a quick question? View our <a
+                  href="#faqs"
                   className="underline font-medium"
                   onClick={(e) => {
                     e.preventDefault();
@@ -223,7 +223,7 @@ There are no cut-off hours for our lead planner — you're never charged extra i
           </div>
 
           {/* Section Description */}
-          <p className="font-newsreader text-secondary text-[17px] font-normal mb-10 max-w-4xl">
+          <p className="font-newsreader text-secondary text-[17px] font-light mb-10 max-w-4xl">
             Let's begin with the essentials — how we can reach you. Your contact details ensure we reach out promptly and continue this conversation with the care and attention your event deserves.
           </p>
 
@@ -293,7 +293,7 @@ There are no cut-off hours for our lead planner — you're never charged extra i
           </div>
 
           {/* Section Description */}
-          <p className="font-newsreader text-secondary text-[17px] font-normal mb-10 max-w-4xl">
+          <p className="font-newsreader text-secondary text-[17px] font-light mb-10 max-w-4xl">
             Now, tell us a little about your celebration — whether it's a wedding, birthday, or corporate event. These details help us understand your vision and begin shaping an experience that feels intentional, elegant, and uniquely yours."
           </p>
 
@@ -372,18 +372,18 @@ There are no cut-off hours for our lead planner — you're never charged extra i
               className="bg-primary text-white font-lato text-base px-10 py-4 flex items-center gap-4 hover:opacity-90 transition-opacity"
             >
               SEND MESSAGE
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path 
-                  d="M5 12H19M19 12L12 5M19 12L12 19" 
-                  stroke="currentColor" 
-                  strokeWidth="1.5" 
-                  strokeLinecap="round" 
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
@@ -396,8 +396,8 @@ There are no cut-off hours for our lead planner — you're never charged extra i
       <section id="faqs" className="bg-primary px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
-          <h2 
-            className="font-editors-note text-[#FFFEFD] text-4xl lg:text-[48px] text-center mb-16 italic"
+          <h2
+            className="font-editors-note text-[#FFFEFD] text-4xl lg:text-[48px] text-center mb-16"
             style={{ fontWeight: 100 }}
           >
             Frequently Asked Questions
@@ -421,7 +421,7 @@ There are no cut-off hours for our lead planner — you're never charged extra i
                 </button>
 
                 {/* Answer */}
-                <div 
+                <div
                   className={`
                     overflow-hidden transition-all duration-300 ease-in-out
                     ${openFaqIndex === index ? 'max-h-[1000px] opacity-100 pb-8' : 'max-h-0 opacity-0'}
