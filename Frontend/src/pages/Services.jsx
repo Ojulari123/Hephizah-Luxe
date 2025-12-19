@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import servicesHeroBg from '../assets/images/servicesHerobg.png';
 import whyWorkImage from '../assets/images/whyWorkImage.png';
 import checkIcon from '../assets/icons/checkIcon.svg';
@@ -7,10 +8,110 @@ import creativeImage from '../assets/images/creativeImage.png';
 import elevatedImage from '../assets/images/elevatedImage.png';
 import curlyArrow from '../assets/icons/curlyArrow.svg';
 import redCurlyArrow from '../assets/icons/redcurlyArrow.svg';
+import whiteArrow from '../assets/icons/whitestraightArrow.svg';
+import straightArrow from '../assets/icons/straightArrow.svg';
 import luxuryBg from '../assets/images/luxuryBg.jpg';
 import InstagramSection from '../components/InstagramSection';
 
 const Services = () => {
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Risi & Tunde",
+      subtitle: "Their Cultural & Modern Fusion Wedding",
+      quote: "\"Wow, just wow! The day felt like a celebration of legacy. Both our culture were honoured with such respect and artistry, weaving tradition and modern elegance together seamlessly. The flow, the coordination... everything was handled with such care. We were able to fully embrace the meaning of the day without stress or worry. It was powerful, beautiful, and unforgettable.\"",
+      buttonText: "View their Wedding",
+      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop"
+    },
+    {
+      name: "Stephanie",
+      subtitle: "Her Modern 30th Birthday Dinner Soirée",
+      quote: "\"From the moment we began planning, I felt completely supported. Hephzibah Luxe not only understood my style, they elevated it. The design was stunning, but the service was even more impressive — calm, organized, and so thoughtful. The evening flowed flawlessly, allowing me to simply enjoy my 30th surrounded by the people I love. It was everything I hoped for and so much more.\"",
+      buttonText: "View her Birthday",
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop"
+    },
+    {
+      name: "Shola, Manager",
+      subtitle: "Focus Quest Group's Innovation Launch Event",
+      quote: "\"Hephzibah Luxe delivered an exceptionally well-organised event from start to finish. Their attention to detail, calm coordination, and ability to manage multiple stakeholders allowed our team to focus on the purpose of the launch while trusting that every element was handled seamlessly. The experience was polished, professional, and executed to a very high standard.\"",
+      buttonText: "View their Launch",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop"
+    },
+    {
+      name: "Adaeze & Chukwuemeka",
+      subtitle: "Their Traditional Wedding Ceremony",
+      quote: "\"Every detail was perfect. From the traditional elements to the modern touches, Hephzibah Luxe understood our vision completely. The day was seamless, elegant, and filled with so much joy. We couldn't have asked for a better team to bring our celebration to life.\"",
+      buttonText: "View their Wedding",
+      image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop"
+    },
+    {
+      name: "The Okonkwo Family",
+      subtitle: "Baby Naming & Dedication Ceremony",
+      quote: "\"Such a beautiful and intimate celebration. Hephzibah Luxe created an atmosphere that was warm, elegant, and deeply meaningful. Every guest commented on how special the day felt. We're so grateful for their care and attention.\"",
+      buttonText: "View their Ceremony",
+      image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&auto=format&fit=crop"
+    }
+  ];
+
+  // Auto-slide testimonials every 5 seconds with smooth scroll
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const carousel = document.getElementById('testimonials-carousel');
+      if (!carousel) return;
+
+      const slideWidth = carousel.offsetWidth;
+      const currentScroll = carousel.scrollLeft;
+      const maxScroll = slideWidth * (testimonials.length - 1);
+
+      // If at last slide, quickly reset to start then animate to first slide position
+      if (currentScroll >= maxScroll - 10) {
+        // We're at the last slide, smoothly scroll to first
+        carousel.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+        setActiveTestimonial(0);
+      } else {
+        // Normal scroll to next slide
+        setActiveTestimonial((prev) => {
+          const nextIndex = prev + 1;
+          carousel.scrollTo({
+            left: nextIndex * slideWidth,
+            behavior: 'smooth'
+          });
+          return nextIndex;
+        });
+      }
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  // Update active testimonial on manual scroll
+  useEffect(() => {
+    const carousel = document.getElementById('testimonials-carousel');
+    if (!carousel) return;
+
+    let scrollTimeout;
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollPosition = carousel.scrollLeft;
+        const slideWidth = carousel.offsetWidth;
+        const newIndex = Math.round(scrollPosition / slideWidth);
+        if (newIndex >= 0 && newIndex < testimonials.length) {
+          setActiveTestimonial(newIndex);
+        }
+      }, 100);
+    };
+
+    carousel.addEventListener('scroll', handleScroll);
+    return () => {
+      carousel.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [testimonials.length]);
+
   const serviceCards = [
     {
       title: "Weddings",
@@ -152,13 +253,13 @@ const Services = () => {
                     {/* Text Content */}
                     <div>
                       <h3
-                        className="font-newsreader text-[#FFFEFD] text-[20px] font-normal mb-2"
+                        className="font-newsreader text-[#FFFEFD] text-[20px] font-light mb-2"
                         style={{ lineHeight: '25px' }}
                       >
                         {reason.title}
                       </h3>
                       <p
-                        className="font-newsreader text-[#FFFEFD] text-[18px] font-light"
+                        className="font-newsreader text-[#FFFEFD] text-[18px] font-extralight"
                         style={{ lineHeight: '25px' }}
                       >
                         {reason.description}
@@ -178,7 +279,7 @@ const Services = () => {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
 
             {/* Left Side - Sticky Content (50%) */}
-            <div className="lg:w-[50%] lg:sticky lg:top-32 h-fit flex-shrink-0">
+            <div className="lg:w-[55%] lg:sticky lg:top-32 h-fit flex-shrink-0">
               {/* Heading */}
               <h2 className="text-secondary mb-8">
                 <span
@@ -208,8 +309,8 @@ const Services = () => {
                 </p>
 
                 {/* CTA Button */}
-                <a
-                  href="/inquiries"
+                <Link
+                  to="/inquiries"
                   className="inline-flex items-center justify-between border border-secondary px-6 py-3 hover:bg-secondary hover:text-white transition-colors duration-300 group"
                 >
                   <span
@@ -217,13 +318,22 @@ const Services = () => {
                   >
                     Send us a message
                   </span>
-                  <span className="text-secondary text-xl ml-6 group-hover:text-white">→</span>
-                </a>
+                  <img
+                    src={straightArrow}
+                    alt=""
+                    className="ml-6 w-6 h-4 group-hover:hidden"
+                  />
+                  <img
+                    src={whiteArrow}
+                    alt=""
+                    className="ml-6 w-6 h-4 hidden group-hover:block"
+                  />
+                </Link>
               </div>
             </div>
 
             {/* Right Side - Horizontal Scrollable Cards (50%) */}
-            <div className="lg:w-[50%] min-w-0">
+            <div className="lg:w-[45%] min-w-0">
               <div
                 className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar"
                 style={{
@@ -514,7 +624,7 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 to="/portfolio"
-                className="px-8 py-2 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300"
+                className="inline-flex items-center px-8 py-2 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 group"
                 style={{
                   fontFamily: "'Newsreader', serif",
                   fontWeight: 300,
@@ -523,12 +633,22 @@ const Services = () => {
                   lineHeight: '35px',
                 }}
               >
-                View Our Portfolio →
+                View Our Portfolio
+                <img
+                  src={whiteArrow}
+                  alt=""
+                  className="ml-3 w-5 h-3 group-hover:hidden"
+                />
+                <img
+                  src={straightArrow}
+                  alt=""
+                  className="ml-3 w-5 h-3 hidden group-hover:block"
+                />
               </Link>
 
               <Link
                 to="/inquiries"
-                className="px-8 py-2 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300"
+                className="inline-flex items-center px-8 py-2 border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 group"
                 style={{
                   fontFamily: "'Newsreader', serif",
                   fontWeight: 300,
@@ -537,7 +657,17 @@ const Services = () => {
                   lineHeight: '35px',
                 }}
               >
-                Send us a message →
+                Send us a message
+                <img
+                  src={whiteArrow}
+                  alt=""
+                  className="ml-3 w-5 h-3 group-hover:hidden"
+                />
+                <img
+                  src={straightArrow}
+                  alt=""
+                  className="ml-3 w-5 h-3 hidden group-hover:block"
+                />
               </Link>
             </div>
           </div>
@@ -571,7 +701,7 @@ const Services = () => {
           </h2>
 
           {/* Timeline Container */}
-          <div 
+          <div
             className="overflow-x-auto hide-scrollbar"
             style={{
               scrollbarWidth: 'none',
@@ -581,17 +711,17 @@ const Services = () => {
             {/* Inner container for proper sizing */}
             <div className="relative min-w-max">
               {/* One continuous line */}
-              <div 
+              <div
                 className="absolute left-0 right-0 h-[2px]"
                 style={{ backgroundColor: '#380F05', top: '12px' }}
               ></div>
 
               {/* Process Steps */}
-              <div className="flex gap-16 lg:gap-20 pb-8">
+              <div className="flex gap-8 pb-8">
                 {/* Step 1: CONNECT */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
+                <div className="flex-none w-[280px] lg:w-[350px]">
                   {/* Circle */}
-                  <div 
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -617,8 +747,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 2: ALIGN */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px]">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -643,8 +773,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 3: CURATE */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px]">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -669,8 +799,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 4: ENVISION */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px]">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -695,8 +825,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 5: ORCHESTRATE */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px]">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -721,8 +851,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 6: EXECUTE */}
-                <div className="flex-none w-[280px] lg:w-[300px]">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px]">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -747,8 +877,8 @@ const Services = () => {
                 </div>
 
                 {/* Step 7: COMPLETION */}
-                <div className="flex-none w-[280px] lg:w-[300px] pr-6">
-                  <div 
+                <div className="flex-none w-[280px] lg:w-[350px] pr-6">
+                  <div
                     className="w-6 h-6 rounded-full relative z-10 mb-8"
                     style={{ backgroundColor: '#380F05' }}
                   ></div>
@@ -774,6 +904,157 @@ const Services = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Carousel Section */}
+      <section className="relative z-40 bg-[#2B0202] py-16 lg:py-20 overflow-hidden">
+        <div className="relative">
+          {/* Scrollable Container */}
+          <div
+            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+            id="testimonials-carousel"
+          >
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="flex-none w-full"
+                data-index={index}
+              >
+                <div className="max-w-7xl mx-auto px-6 lg:px-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 lg:gap-12 items-center">
+                    {/* Left - Image (40%) */}
+                    <div className="lg:col-span-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-[400px] lg:h-[500px] object-cover"
+                      />
+                    </div>
+
+                    {/* Right - Content (60%) */}
+                    <div className="lg:col-span-6 text-[#FFFEFD]">
+                      <h2
+                        className="font-editors-note text-[40px] lg:text-[60px] mb-6"
+                        style={{ fontWeight: 100 }}
+                      >
+                        {testimonial.name}
+                      </h2>
+
+                      <h3
+                        className="font-newsreader text-[18px] lg:text-[20px] mb-4"
+                        style={{ fontWeight: 500 }}
+                      >
+                        {testimonial.subtitle}
+                      </h3>
+
+                      <p
+                        className="font-newsreader text-[17px] lg:text-[20px] mb-8"
+                        style={{ fontWeight: 300, lineHeight: '30px' }}
+                      >
+                        {testimonial.quote}
+                      </p>
+
+                      {/* CTA Button */}
+                      <Link
+                        to="/portfolio"
+                        className="inline-flex items-center justify-center border border-[#FFFEFD] px-6 py-3 hover:bg-[#FFFEFD] hover:text-[#2B0202] transition-colors duration-300 group"
+                      >
+                        <span
+                          className="font-newsreader italic text-[#FFFEFD] text-[18px] lg:text-[20px] group-hover:text-[#2B0202]"
+                          style={{ fontWeight: 300 }}
+                        >
+                          {testimonial.buttonText}
+                        </span>
+                        <img
+                          src={whiteArrow}
+                          alt=""
+                          className="ml-4 w-5 h-3 group-hover:hidden"
+                        />
+                        <img
+                          src={straightArrow}
+                          alt=""
+                          className="ml-4 w-5 h-3 hidden group-hover:block"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-3 mt-10">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setActiveTestimonial(index);
+                  const carousel = document.getElementById('testimonials-carousel');
+                  if (carousel) {
+                    carousel.scrollTo({
+                      left: index * carousel.offsetWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial
+                    ? 'bg-[#FFFEFD]'
+                    : 'bg-[#C4C4C4]/50 border border-[#FFFEFD]'
+                  }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ready to Begin CTA Section */}
+      <section className="relative z-40 bg-[#FFFEFD] py-20 lg:py-28 px-6 lg:px-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Header */}
+          <h2
+            className="font-editors-note text-[#380F05] text-[36px] lg:text-[45px] mb-8"
+            style={{ fontWeight: 100 }}
+          >
+            Ready to Begin Your Celebration With Intention?
+          </h2>
+
+          {/* Description */}
+          <p
+            className="font-newsreader text-[#380F05] text-[18px] mb-10"
+            style={{ fontWeight: 300, lineHeight: '29px' }}
+          >
+            Every celebration we plan is thoughtfully customised to reflect your vision, priorities, and scale. We work with care and flexibility, guiding each client toward what's possible with intention and clarity. If you're ready to begin the conversation, we'd love to hear from you.
+          </p>
+
+          {/* CTA Button */}
+          <Link
+            to="/inquiries"
+            className="inline-flex items-center justify-center border border-[#380F05] border-[1.5px] px-8 py-2 hover:bg-[#380F05] hover:text-[#FFFEFD] transition-colors duration-300 group"
+          >
+            <span
+              className="font-newsreader italic text-[#380F05] text-[20px] group-hover:text-[#FFFEFD]"
+              style={{ fontWeight: 300, lineHeight: '35px' }}
+            >
+              Send us a message
+            </span>
+            <img
+              src={straightArrow}
+              alt=""
+              className="ml-4 w-6 h-4 group-hover:hidden"
+            />
+            <img
+              src={whiteArrow}
+              alt=""
+              className="ml-4 w-6 h-4 hidden group-hover:block"
+            />
+          </Link>
         </div>
       </section>
 
