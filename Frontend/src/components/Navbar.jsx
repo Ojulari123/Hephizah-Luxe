@@ -36,7 +36,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="font-newsreader text-[#FFFEFD] text-base hover:opacity-80 transition-opacity italic"
+              className="font-newsreader text-[#FFFEFD] text-base font-light hover:opacity-80 transition-opacity italic"
             >
               {link.name}
             </Link>
