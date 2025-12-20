@@ -411,7 +411,7 @@ const About = () => {
 
       {/* TESTIMONIAL SECTION */}
       <section className="relative bg-[#2B0202] py-24 lg:py-32 overflow-hidden">
-        <div className="hidden lg:block absolute top-16 left-0 w-[150px] xl:w-[200px] h-[450px] xl:h-[550px]">
+        <div className="hidden lg:block absolute top-16 left-0 w-[150px] xl:w-[200px] h-[350px] xl:h-[450px]">
           <img
             src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&auto=format&fit=crop"
             alt="Event Detail"
@@ -419,7 +419,7 @@ const About = () => {
           />
         </div>
 
-        <div className="hidden lg:block absolute bottom-16 right-0 w-[150px] xl:w-[200px] h-[450px] xl:h-[550px]">
+        <div className="hidden lg:block absolute bottom-16 right-0 w-[150px] xl:w-[200px] h-[350px] xl:h-[450px]">
           <img
             src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&auto=format&fit=crop"
             alt="Event Detail"

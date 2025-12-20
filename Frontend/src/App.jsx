@@ -10,6 +10,8 @@ import Portfolio from './pages/Portfolio';
 import BeforeAfter from './pages/BeforeAfter';
 import Inquiries from './pages/Inquiries';
 import ClientPortal from './pages/ClientPortal';
+import SingleDayEventDetails from './pages/SingleDayEventDetails';
+import MultiDayEventDetails from './pages/MultiDayEventDetails';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/single-day/:eventId" element={<SingleDayEventDetails />} />
+            <Route path="/portfolio/multi-day/:eventId" element={<MultiDayEventDetails />} />
             <Route path="/before-after" element={<BeforeAfter />} />
             <Route path="/inquiries" element={<Inquiries />} />
             <Route path="/client-portal" element={<ClientPortal />} />
