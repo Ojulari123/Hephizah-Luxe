@@ -8,6 +8,8 @@ import FloatingLabelTextarea from '../components/FloatingLabelTextarea';
 import PhoneInput from '../components/PhoneInput';
 import InstagramSection from '../components/InstagramSection';
 import * as flags from 'country-flag-icons/react/3x2';
+import whiteArrow from '../assets/icons/whitestraightArrow.svg';
+import darkArrow from '../assets/icons/straightArrow.svg';
 
 const Inquiries = () => {
   // Form state
@@ -34,6 +36,8 @@ const Inquiries = () => {
 
   // FAQ state
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const faqData = [
     {
@@ -367,27 +371,29 @@ There are no cut-off hours for our lead planner — you're never charged extra i
             </p>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="bg-primary text-white font-lato text-base px-10 py-4 flex items-center gap-4 hover:opacity-90 transition-opacity"
-            >
-              SEND MESSAGE
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 12H19M19 12L12 5M19 12L12 19"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+      <button
+        type="submit"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="bg-primary text-white font-lato text-base px-10 py-2 flex items-center gap-8 transition-all duration-500 hover:bg-[#FFFEFD] hover:text-[#2B0202] border-[1.5px] border-transparent hover:border-[#2B0202]"
+      >
+        <span 
+          style={{ 
+            fontWeight: 500,
+            fontSize: '20px',
+            lineHeight: '35px'
+          }}
+          className="font-lato"
+        >
+          SEND MESSAGE
+        </span>
+        
+        <img 
+          src={isHovered ? darkArrow : whiteArrow} 
+          alt="arrow" 
+          className="w-5 h-auto transition-all duration-300" 
+        />
+      </button>
           </div>
         </div>
       </section>
