@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import FloatingLabelInput from '../components/FloatingLabelInput';
 import InstagramSection from '../components/InstagramSection';
+import errorIcon from '../assets/icons/errorIcon.svg';
+import sendIcon from '../assets/icons/sendIcon.svg';
 
 const ClientPortal = () => {
   const [formData, setFormData] = useState({
@@ -9,24 +11,64 @@ const ClientPortal = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errorMessage) setErrorMessage('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt:', formData);
+
+    // Test credentials for "client not found" error
+    // Use: notfound@test.com with any password
+    if (formData.email === 'notfound@test.com') {
+      setErrorMessage('not-found');
+      return;
+    }
+
+    // Simulate successful login for any other credentials
+    if (formData.email && formData.password) {
+      setIsLoggedIn(true);
+    }
   };
 
+  // If logged in, show client portal page
+  if (isLoggedIn) {
+    return (
+      <div>
+        {/* Client Portal Content */}
+        <section className="min-h-screen flex items-center justify-center px-6 py-20">
+          <h1
+            className="font-editors-note text-[#380F05] text-center"
+            style={{
+              fontWeight: 1,
+              fontSize: '64px',
+              lineHeight: '100%',
+              letterSpacing: '0.03em'
+            }}
+          >
+            CLIENT PORTAL
+          </h1>
+        </section>
+
+        {/* Instagram Section */}
+        <InstagramSection />
+      </div>
+    );
+  }
+
+  // Default login view
   return (
     <div>
       {/* Split Layout Section - No top padding/margin */}
       <section className="min-h-screen flex flex-col lg:flex-row">
         {/* Left Side - Image */}
-        <div className="lg:w-1/2 h-[40vh] lg:h-screen">
+        <div className="lg:w-1/2 h-[50vh] lg:h-auto lg:min-h-screen">
           <img
             src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&auto=format&fit=crop"
             alt="Client Portal"
@@ -35,7 +77,7 @@ const ClientPortal = () => {
         </div>
 
         {/* Right Side - Form */}
-        <div className="lg:w-1/2 bg-[#FFFEFD] flex items-center justify-center px-6 lg:px-16 py-16 lg:py-0">
+        <div className="lg:w-1/2 bg-[#FFFEFD] flex items-center px-6 lg:px-16 py-20 lg:py-24">
           <div className="w-full max-w-xl">
             {/* Header */}
             <h1
@@ -77,6 +119,47 @@ const ClientPortal = () => {
 
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              
+              {/* Error Message - Client Not Found */}
+              {errorMessage === 'not-found' && (
+                <div
+                  className="w-full px-6 py-4 flex items-center gap-3"
+                  style={{
+                    backgroundColor: 'rgba(213, 0, 0, 0.4)', // #D50000 with 40% opacity
+                    border: '1px solid #D50000'
+                  }}
+                >
+                  <img
+                    src={errorIcon}
+                    alt="Error"
+                    className="flex-shrink-0 w-5 h-5"
+                  />
+                  <div
+                    className="font-lato flex flex-wrap items-center gap-1"
+                    style={{
+                      fontWeight: 400,
+                      fontSize: '15px',
+                      lineHeight: '22px',
+                      color: '#2B0202'
+                    }}
+                  >
+                    <span>Client not found. Please</span>
+                    <a
+                      href="/inquiry"
+                      className="underline hover:opacity-70 transition-opacity font-medium inline-flex items-center"
+                    >
+                      Send an Inquiry
+                    </a>
+                    <span>to become a client</span>
+                    <img
+                      src={sendIcon}
+                      alt="Send"
+                      className="w-3.5 h-3.5 ml-1"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Email Input */}
               <FloatingLabelInput
                 label="Your Email Address"
@@ -97,12 +180,12 @@ const ClientPortal = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                 />
-                
+
                 {/* Show/Hide Password Toggle */}
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 font-lato text-[#380F05] text-sm flex items-center gap-2"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 font-lato flex items-center gap-2"
                   style={{
                     fontWeight: 300,
                     fontSize: '14px'
@@ -113,10 +196,11 @@ const ClientPortal = () => {
                     height="20"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#380F05"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    style={{ opacity: 0.5 }}
                   >
                     {showPassword ? (
                       <>
@@ -130,26 +214,28 @@ const ClientPortal = () => {
                       </>
                     )}
                   </svg>
-                  {showPassword ? 'Hide' : 'Show'}
+                  <span style={{ color: '#380F05', opacity: 0.75 }}>
+                    {showPassword ? 'Hide' : 'Show'}
+                  </span>
                 </button>
               </div>
 
-              {/* Log In Button */}
-              <button
-                type="submit"
-                className="w-full bg-[#380F05] text-[#FFFEFD] font-lato py-4 px-8 transition-all duration-300 hover:bg-[#4a1407] flex items-center justify-center gap-3 group"
-                style={{
-                  fontWeight: 500,
-                  fontSize: '18px',
-                  letterSpacing: '0.05em'
-                }}
-              >
-                LOG IN
-                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </button>
+              {/* Log In Button and Forgot Password - Right aligned */}
+              <div className="flex flex-col items-end gap-4">
+                <button
+                  type="submit"
+                  className="bg-[#380F05] text-[#FFFEFD] font-lato py-3 px-9 transition-all duration-300 hover:bg-[#4a1407] flex items-center justify-center gap-3 group"
+                  style={{
+                    fontWeight: 500,
+                    fontSize: '18px',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  LOG IN
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </button>
 
-              {/* Forgot Password Link */}
-              <div className="text-center">
+                {/* Forgot Password Link */}
                 <a
                   href="#"
                   className="font-lato text-[#380F05] underline hover:opacity-70 transition-opacity"
