@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import InstagramSection from '../components/InstagramSection';
 import whiteArrow from '../assets/icons/whitestraightArrow.svg';
 import straightArrow from '../assets/icons/straightArrow.svg';
+import mumsiImage from '../assets/images/mumsi.jpg';
+import sisterImage from '../assets/images/sister.jpg';
+import topLeftImage from '../assets/images/topleft.png';
+import bottomRightImage from '../assets/images/bottomright.jpg';
 
 const About = () => {
   const heroRef = useRef(null);
@@ -263,7 +267,7 @@ const About = () => {
             {/* Image (45%) */}
             <div className="w-full lg:w-[45%] relative min-h-[500px] lg:min-h-auto">
               <img
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&auto=format&fit=crop"
+                src={mumsiImage}
                 alt="Winnie O."
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -393,14 +397,14 @@ const About = () => {
                   lineHeight: '26px'
                 }}
               >
-                A partnership rooted in trust, perspective, and a shared commitment to excellence. Together, Winnie and Tosin create celebrations that ARE thoughtful, refined, and deeply meaningful — where every element is considered, every moment intentional, and every experience elevated.
+                A partnership rooted in trust, perspective, and a shared commitment to excellence. Together, Winnie and Tosin create celebrations that are thoughtful, refined, and deeply meaningful — where every element is considered, every moment intentional, and every experience elevated.
               </p>
             </div>
 
             {/* Image (45%) */}
             <div className="w-full lg:w-[45%] relative min-h-[500px] lg:min-h-auto lg:order-2 order-1">
               <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&auto=format&fit=crop"
+                src={sisterImage}
                 alt="Tosin O."
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -413,7 +417,7 @@ const About = () => {
       <section className="relative bg-[#2B0202] py-24 lg:py-32 overflow-hidden">
         <div className="hidden lg:block absolute top-16 left-0 w-[150px] xl:w-[200px] h-[350px] xl:h-[450px]">
           <img
-            src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&auto=format&fit=crop"
+            src={topLeftImage}
             alt="Event Detail"
             className="w-full h-full object-cover"
           />
@@ -421,7 +425,7 @@ const About = () => {
 
         <div className="hidden lg:block absolute bottom-16 right-0 w-[150px] xl:w-[200px] h-[350px] xl:h-[450px]">
           <img
-            src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&auto=format&fit=crop"
+            src={bottomRightImage}
             alt="Event Detail"
             className="w-full h-full object-cover"
           />
@@ -440,7 +444,7 @@ const About = () => {
                 lineHeight: '55px'
               }}
             >
-              “I walked into a room filled with love, laughter, and surprises I never saw coming. The celebration was seamless, and beautifully put together. My wife and Hephzibah Luxe created an evening that was deeply meaningful and beyond my wildest dreams — a birthday I will never forget. I am truly grateful to the Hephzibah Luxe team.”
+              "I walked into a room filled with love, laughter, and surprises I never saw coming. The celebration was seamless, and beautifully put together. My wife and Hephzibah Luxe created an evening that was deeply meaningful and beyond my wildest dreams — a birthday I will never forget. I am truly grateful to the Hephzibah Luxe team."
             </p>
 
             {/* Testifier Name */}
