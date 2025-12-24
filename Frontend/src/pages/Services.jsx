@@ -54,62 +54,33 @@ const Services = () => {
     }
   ];
 
-  // Auto-slide testimonials every 5 seconds with smooth scroll
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const carousel = document.getElementById('testimonials-carousel');
-      if (!carousel) return;
-
-      const slideWidth = carousel.offsetWidth;
-      const currentScroll = carousel.scrollLeft;
-      const maxScroll = slideWidth * (testimonials.length - 1);
-
-      // If at last slide, quickly reset to start then animate to first slide position
-      if (currentScroll >= maxScroll - 10) {
-        // We're at the last slide, smoothly scroll to first
-        carousel.scrollTo({
-          left: 0,
-          behavior: 'smooth'
-        });
-        setActiveTestimonial(0);
-      } else {
-        // Normal scroll to next slide
-        setActiveTestimonial((prev) => {
-          const nextIndex = prev + 1;
-          carousel.scrollTo({
-            left: nextIndex * slideWidth,
-            behavior: 'smooth'
-          });
-          return nextIndex;
-        });
-      }
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  // Update active testimonial on manual scroll
+  // Auto-slide testimonials every 10 seconds with infinite scroll
   useEffect(() => {
     const carousel = document.getElementById('testimonials-carousel');
     if (!carousel) return;
 
-    let scrollTimeout;
-    const handleScroll = () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const scrollPosition = carousel.scrollLeft;
-        const slideWidth = carousel.offsetWidth;
-        const newIndex = Math.round(scrollPosition / slideWidth);
-        if (newIndex >= 0 && newIndex < testimonials.length) {
-          setActiveTestimonial(newIndex);
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => {
+        const nextIndex = prev + 1;
+        
+        // Apply smooth transition
+        carousel.style.transition = 'transform 0.7s ease-in-out';
+        carousel.style.transform = `translateX(-${nextIndex * 100}%)`;
+        
+        // When we reach the end of duplicated set, seamlessly reset
+        if (nextIndex >= testimonials.length) {
+          setTimeout(() => {
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(0%)`;
+          }, 700);
+          return 0;
         }
-      }, 100);
-    };
-
-    carousel.addEventListener('scroll', handleScroll);
-    return () => {
-      carousel.removeEventListener('scroll', handleScroll);
-      clearTimeout(scrollTimeout);
-    };
+        
+        return nextIndex;
+      });
+    }, 10000);
+    
+    return () => clearInterval(interval);
   }, [testimonials.length]);
 
   const serviceCards = [
@@ -912,14 +883,15 @@ const Services = () => {
         <div className="relative">
           {/* Scrollable Container */}
           <div
-            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar"
+            className="flex hide-scrollbar"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none'
             }}
             id="testimonials-carousel"
           >
-            {testimonials.map((testimonial, index) => (
+            {/* Duplicate testimonials for infinite loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
                 className="flex-none w-full"
@@ -997,13 +969,11 @@ const Services = () => {
                   setActiveTestimonial(index);
                   const carousel = document.getElementById('testimonials-carousel');
                   if (carousel) {
-                    carousel.scrollTo({
-                      left: index * carousel.offsetWidth,
-                      behavior: 'smooth'
-                    });
+                    carousel.style.transition = 'transform 0.7s ease-in-out';
+                    carousel.style.transform = `translateX(-${index * 100}%)`;
                   }
                 }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${activeTestimonial % testimonials.length === index
                     ? 'bg-[#FFFEFD]'
                     : 'bg-[#C4C4C4]/50 border border-[#FFFEFD]'
                   }`}

@@ -2,7 +2,14 @@ import { useState, useRef } from 'react';
 import beforeImage from '../assets/images/beforeImage.png';
 import afterImage from '../assets/images/afterImage.jpg';
 import andIcon from '../assets/icons/andIcon.svg';
-import bnaSlider from '../assets/icons/bnaSlider.svg';
+import firstBefore from '../assets/images/firstbefore.jpg';
+import firstAfter from '../assets/images/firstafter.jpg';
+import secondBefore from '../assets/images/secondbefore.webp';
+import secondAfter from '../assets/images/secondafter.png';
+import thirdBefore from '../assets/images/thirdbefore.png';
+import thirdAfter from '../assets/images/thirdafter.jpg';
+import fourthBefore from '../assets/images/fourthbefore.jpg';
+import fourthAfter from '../assets/images/fourthafter.jpg';
 import InstagramSection from '../components/InstagramSection';
 
 // Comparison Slider Component
@@ -116,8 +123,8 @@ const BeforeAfter = () => {
       subtitle: "A Contemporary Outdoor Wedding",
       title: "ROMANCE\nREIMAGINED",
       description: "What began as a simple open lawn became a contemporary landscape of sculptural florals, soft draping, and clean architectural lines. We carved out an aisle that framed the water's edge, layered muted tones against the natural greenery, and introduced intentional elevation points that created depth and flow. The transformation turned an ordinary outdoor clearing into a refined, modern ceremony space — light-filled, airy, and romantic.",
-      beforeImg: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop",
-      afterImg: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop",
+      beforeImg: firstBefore,
+      afterImg: firstAfter,
       layout: "left" // text on left, images on right
     },
     {
@@ -125,8 +132,8 @@ const BeforeAfter = () => {
       subtitle: "Corporate Hospitality, Elevated",
       title: "CIVIC CENTRE\nREIMAGINED",
       description: "What began as a stark conference hall was transformed into a warm, contemporary dining environment. Clean lines and subtle brand cues shaped the design, while immersive lighting softened the room's edges and invited guests into a more intimate experience. Sterile layouts gave way to elegantly dressed tables, curated florals, and a gentle glow that echoed BlueTech's identity. The result was a space where corporate formality dissolved into refined hospitality — polished and thoughtfully composed.",
-      beforeImg: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&auto=format&fit=crop",
-      afterImg: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop",
+      beforeImg: secondBefore,
+      afterImg: secondAfter,
       layout: "right" // text on right, images on left
     },
     {
@@ -134,8 +141,8 @@ const BeforeAfter = () => {
       subtitle: "A Cultural & Modern Fusion Wedding",
       title: "TRADITION\nILLUMINATED",
       description: "A plain events hall became the stage for a modern interpretation of cultural heritage. Vibrant traditional textiles were paired with minimalist florals, while soft lighting highlighted ceremonial areas with intention. The result was a warm, contemporary scene where colour and structure danced together — a fusion of culture and modernity brought to life in rich detail.",
-      beforeImg: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop",
-      afterImg: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop",
+      beforeImg: thirdBefore,
+      afterImg: thirdAfter,
       layout: "left"
     },
     {
@@ -143,8 +150,8 @@ const BeforeAfter = () => {
       subtitle: "A Birthday Dinner in Modern Bloom",
       title: "INTIMATE\nGIRLS DINNER",
       description: "What began as a simple private dining room blossomed into a softly lit, modern sanctuary. Clean tablescapes, layered with delicate florals and gentle candlelight, wrapped the room in a warm, luminous glow. Tonal accents added depth, turning the space into a cocoon of quiet elegance. The transformation shifted the atmosphere from ordinary to intimate — a tender, luxurious setting crafted for connection, warmth, and a beauty that felt both effortless and intentional.",
-      beforeImg: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop",
-      afterImg: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop",
+      beforeImg: fourthBefore,
+      afterImg: fourthAfter,
       layout: "right"
     }
   ];
