@@ -1,6 +1,28 @@
 import { useState } from 'react';
 import InstagramSection from '../components/InstagramSection';
 
+// Event cover images
+import eventOneImage from '../assets/images/eventone.jpg';
+import brownCoupleImage from '../assets/images/browncouple.jpg';
+import eventThreeImage from '../assets/images/eventthree.jpg';
+
+// Event 1 gallery images (Bridal Shower)
+import eventOneImg1 from '../assets/images/eventoneImages1.jpg';
+import eventOneImg2 from '../assets/images/eventoneImages2.png';
+import eventOneImg3 from '../assets/images/eventoneImages3.jpg';
+import eventOneImg4 from '../assets/images/eventoneImages4.png';
+import eventOneImg5 from '../assets/images/eventoneImages5.jpg';
+import eventOneImg6 from '../assets/images/eventoneImages6.jpg';
+import eventOneImg7 from '../assets/images/eventoneImages7.jpg';
+import eventOneImg8 from '../assets/images/eventoneImages8.jpg';
+import eventOneImg9 from '../assets/images/eventoneImages9.jpg';
+import eventOneImg10 from '../assets/images/eventoneImages10.jpg';
+import eventOneImg11 from '../assets/images/eventoneImages11.jpg';
+import eventOneImg12 from '../assets/images/eventoneImages12.jpg';
+import eventOneImg13 from '../assets/images/eventoneImages13.jpg';
+import eventOneImg14 from '../assets/images/eventoneImages14.jpg';
+import eventOneImg15 from '../assets/images/eventoneImages15.jpg';
+
 const MultiDayEventDetails = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -17,22 +39,24 @@ const MultiDayEventDetails = () => {
         id: 1,
         eventNumber: 'EVENT NO. 1',
         eventTitle: "Before the Vows — Risi's Floral Bridal Shower With a Lakeside View",
-        eventImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop',
+        eventImage: eventOneImage,
         description: "A sun-drenched afternoon celebration overlooking the tranquil waters of Lagos. Risi's bridal shower was a delicate prelude to the days ahead — intimate, joyful, and wrapped in blooms. Soft pinks and whites adorned every corner, while close friends gathered to toast to love, laughter, and the journey she was about to begin.\n\nThe lakeside setting provided a serene backdrop for heartfelt conversations, personalized games, and thoughtful touches that reflected Risi's grace and warmth. It was a moment of pause before the whirlwind — a chance to simply be present with the women who've shaped her story.",
         allImages: [
-          'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&auto=format&fit=crop'
+          eventOneImg1,
+          eventOneImg2,
+          eventOneImg3,
+          eventOneImg4,
+          eventOneImg5,
+          eventOneImg6,
+          eventOneImg7,
+          eventOneImg8,
+          eventOneImg9,
+          eventOneImg10,
+          eventOneImg11,
+          eventOneImg12,
+          eventOneImg13,
+          eventOneImg14,
+          eventOneImg15
         ],
         testimonial: {
           quote: "My bridal shower felt like a dream I didn't even know how to articulate. Hephzibah Luxe took the simplest vision and transformed it into something soft, feminine, and deeply personal. Every detail — from the florals to the ambiance — felt intentional. I spent the entire afternoon surrounded by beauty and genuine joy, completely at ease. It was the perfect beginning to my wedding journey.",
@@ -43,7 +67,7 @@ const MultiDayEventDetails = () => {
         id: 2,
         eventNumber: 'EVENT NO. 2',
         eventTitle: 'The Traditional Wedding — A Tapestry of Culture',
-        eventImage: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop',
+        eventImage: brownCoupleImage,
         description: "Rich fabrics, ancestral blessings, and the vibrant energy of two families becoming one. The traditional wedding was a celebration steeped in heritage — where every ritual, every color, every gesture carried the weight of generations. Risi and Tunde honored their roots with intention, weaving cultural customs into a day that felt both deeply meaningful and visually stunning.\n\nFrom the ceremonial processions to the exchange of symbolic gifts, the event unfolded like a living tapestry — bold, beautiful, and unmistakably theirs. It was tradition reimagined with elegance, proving that culture and contemporary design can exist in perfect harmony.",
         allImages: [
           'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&auto=format&fit=crop',
@@ -68,7 +92,7 @@ const MultiDayEventDetails = () => {
         id: 3,
         eventNumber: 'EVENT NO. 3',
         eventTitle: 'A Portrait of Elegance — The Wedding From Aisle to Midnight',
-        eventImage: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&auto=format&fit=crop',
+        eventImage: eventThreeImage,
         description: "The final chapter of their celebration — a refined, elegant affair that carried them from intimate vows to a grand reception under the stars. Soft neutrals, dramatic lighting, and thoughtful design transformed the venue into a modern sanctuary. Every detail whispered sophistication, from the minimalist floral arrangements to the custom place settings that bore their story.\n\nAs the evening unfolded, the couple moved seamlessly from ceremony to celebration — dancing, dining, and embracing the joy of a love that had been years in the making. It was elegance in motion, a fitting crescendo to three unforgettable days.",
         allImages: [
           'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&auto=format&fit=crop',
