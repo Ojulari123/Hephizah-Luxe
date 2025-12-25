@@ -3,19 +3,31 @@ import { Link } from 'react-router-dom';
 import InstagramSection from '../components/InstagramSection';
 import whiteArrow from '../assets/icons/whitestraightArrow.svg';
 import straightArrow from '../assets/icons/straightArrow.svg';
+// Hero images
+import decorImage from '../assets/images/decor.jpg';
+import exploreImage from '../assets/images/exploreImage.png';
+import giftImage from '../assets/images/gift.png';
+import instaImage4 from '../assets/images/instaImage4.png';
+import outdoorsImage from '../assets/images/outdoors.png';
+import risiImage from '../assets/images/risiImage.png';
+import topleftImage from '../assets/images/topleft.png';
+import whyWorkImage from '../assets/images/whyWorkImage.png';
 
 const Portfolio = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState('All Events');
   const [hoveredButton, setHoveredButton] = useState(null);
 
-  // Array of placeholder images for hero
+  // Array of images for hero
   const heroImages = [
-    "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop"
+    decorImage,
+    exploreImage,
+    giftImage,
+    instaImage4,
+    outdoorsImage,
+    risiImage,
+    topleftImage,
+    whyWorkImage
   ];
 
   // Portfolio events data - Added id and eventType fields

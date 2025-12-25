@@ -15,22 +15,31 @@ import diningImage from '../assets/images/diningImage.png';
 import blackCoupleImage from '../assets/images/blackcouple.png';
 // About section images
 import birthdayImage from '../assets/images/birthdayImage.png';
+// Portfolio carousel images
+import flowerImage from '../assets/images/flowerImage.png';
+import secondAfterImage from '../assets/images/secondafter.png';
+import brownCoupleImage from '../assets/images/browncouple.jpg';
+import mindyImage from '../assets/images/mindyImage.jpg';
+// Where Your Celebration Takes Shape section
+import luxuryBg from '../assets/images/luxuryBg.jpg';
+// Testimonial images
+import risiImage from '../assets/images/risiImage.png';
+import poseImage from '../assets/images/poseImage.png';
+import chairImage from '../assets/images/chairImage.jpg';
 import InstagramSection from '../components/InstagramSection';
 
 // Portfolio Carousel Component
 const PortfolioCarousel = () => {
   const portfolioImages = [
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&auto=format&fit=crop'
+    flowerImage,
+    jumaCoupleImage,
+    secondAfterImage,
+    brownCoupleImage,
+    mindyImage
   ];
 
   return (
-    <div className="relative h-full min-h-[500px] lg:min-h-[600px] bg-[#FFFEFD] overflow-hidden">
+    <div className="relative h-full min-h-[270px] lg:min-h-[370px] bg-[#FFFEFD] overflow-hidden">
       <div className="flex h-full animate-portfolio-scroll">
         {/* Triple the images for seamless infinite loop */}
         {[...portfolioImages, ...portfolioImages, ...portfolioImages].map((image, index) => (
@@ -93,35 +102,21 @@ const Home = () => {
         subtitle: "Their Cultural & Modern Fusion Wedding",
         quote: "\"Wow, just wow! The day felt like a celebration of legacy. Both our culture were honoured with such respect and artistry, weaving tradition and modern elegance together seamlessly. The flow, the coordination... everything was handled with such care. We were able to fully embrace the meaning of the day without stress or worry. It was powerful, beautiful, and unforgettable.\"",
         buttonText: "View their Wedding",
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop"
+        image: risiImage
       },
       {
         name: "Stephanie",
         subtitle: "Her Modern 30th Birthday Dinner Soirée",
         quote: "\"From the moment we began planning, I felt completely supported. Hephzibah Luxe not only understood my style, they elevated it. The design was stunning, but the service was even more impressive — calm, organized, and so thoughtful. The evening flowed flawlessly, allowing me to simply enjoy my 30th surrounded by the people I love. It was everything I hoped for and so much more.\"",
         buttonText: "View her Birthday",
-        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop"
+        image: poseImage
       },
       {
         name: "Shola, Manager",
         subtitle: "Focus Quest Group's Innovation Launch Event",
         quote: "\"Hephzibah Luxe delivered an exceptionally well-organised event from start to finish. Their attention to detail, calm coordination, and ability to manage multiple stakeholders allowed our team to focus on the purpose of the launch while trusting that every element was handled seamlessly. The experience was polished, professional, and executed to a very high standard.\"",
         buttonText: "View their Launch",
-        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop"
-      },
-      {
-        name: "Adaeze & Chukwuemeka",
-        subtitle: "Their Traditional Wedding Ceremony",
-        quote: "\"Every detail was perfect. From the traditional elements to the modern touches, Hephzibah Luxe understood our vision completely. The day was seamless, elegant, and filled with so much joy. We couldn't have asked for a better team to bring our celebration to life.\"",
-        buttonText: "View their Wedding",
-        image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop"
-      },
-      {
-        name: "The Okonkwo Family",
-        subtitle: "Baby Naming & Dedication Ceremony",
-        quote: "\"Such a beautiful and intimate celebration. Hephzibah Luxe created an atmosphere that was warm, elegant, and deeply meaningful. Every guest commented on how special the day felt. We're so grateful for their care and attention.\"",
-        buttonText: "View their Ceremony",
-        image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&auto=format&fit=crop"
+        image: chairImage
       }
     ];
   
@@ -446,7 +441,7 @@ const Home = () => {
 
       {/* Our Portfolio Section */}
       <section className="relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[700px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[470px]">
           {/* Left Column - Full height with cream top and dark bottom */}
           <div className="lg:col-span-5 flex flex-col">
             {/* Top - Cream/White background with italic text */}
@@ -590,7 +585,7 @@ const Home = () => {
           {/* Left - Image */}
           <div className="h-[500px] lg:h-[700px]">
             <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop"
+              src={luxuryBg}
               alt="Elegant table setting"
               className="w-full h-full object-cover"
             />

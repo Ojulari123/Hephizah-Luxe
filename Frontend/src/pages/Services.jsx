@@ -11,6 +11,15 @@ import redCurlyArrow from '../assets/icons/redcurlyArrow.svg';
 import whiteArrow from '../assets/icons/whitestraightArrow.svg';
 import straightArrow from '../assets/icons/straightArrow.svg';
 import luxuryBg from '../assets/images/luxuryBg.jpg';
+// Testimonial images
+import risiImage from '../assets/images/risiImage.png';
+import poseImage from '../assets/images/poseImage.png';
+import chairImage from '../assets/images/chairImage.jpg';
+// Service card images
+import exploreImage from '../assets/images/exploreImage.png';
+import birthdayImage from '../assets/images/birthdayImage.png';
+import secondAfterImage from '../assets/images/secondafter.png';
+import diningServiceImage from '../assets/images/diningImage.jpg';
 import InstagramSection from '../components/InstagramSection';
 
 const Services = () => {
@@ -22,35 +31,21 @@ const Services = () => {
       subtitle: "Their Cultural & Modern Fusion Wedding",
       quote: "\"Wow, just wow! The day felt like a celebration of legacy. Both our culture were honoured with such respect and artistry, weaving tradition and modern elegance together seamlessly. The flow, the coordination... everything was handled with such care. We were able to fully embrace the meaning of the day without stress or worry. It was powerful, beautiful, and unforgettable.\"",
       buttonText: "View their Wedding",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop"
+      image: risiImage
     },
     {
       name: "Stephanie",
       subtitle: "Her Modern 30th Birthday Dinner Soirée",
       quote: "\"From the moment we began planning, I felt completely supported. Hephzibah Luxe not only understood my style, they elevated it. The design was stunning, but the service was even more impressive — calm, organized, and so thoughtful. The evening flowed flawlessly, allowing me to simply enjoy my 30th surrounded by the people I love. It was everything I hoped for and so much more.\"",
       buttonText: "View her Birthday",
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&auto=format&fit=crop"
+      image: poseImage
     },
     {
       name: "Shola, Manager",
       subtitle: "Focus Quest Group's Innovation Launch Event",
       quote: "\"Hephzibah Luxe delivered an exceptionally well-organised event from start to finish. Their attention to detail, calm coordination, and ability to manage multiple stakeholders allowed our team to focus on the purpose of the launch while trusting that every element was handled seamlessly. The experience was polished, professional, and executed to a very high standard.\"",
       buttonText: "View their Launch",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop"
-    },
-    {
-      name: "Adaeze & Chukwuemeka",
-      subtitle: "Their Traditional Wedding Ceremony",
-      quote: "\"Every detail was perfect. From the traditional elements to the modern touches, Hephzibah Luxe understood our vision completely. The day was seamless, elegant, and filled with so much joy. We couldn't have asked for a better team to bring our celebration to life.\"",
-      buttonText: "View their Wedding",
-      image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop"
-    },
-    {
-      name: "The Okonkwo Family",
-      subtitle: "Baby Naming & Dedication Ceremony",
-      quote: "\"Such a beautiful and intimate celebration. Hephzibah Luxe created an atmosphere that was warm, elegant, and deeply meaningful. Every guest commented on how special the day felt. We're so grateful for their care and attention.\"",
-      buttonText: "View their Ceremony",
-      image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=800&auto=format&fit=crop"
+      image: chairImage
     }
   ];
 
@@ -87,22 +82,22 @@ const Services = () => {
     {
       title: "Weddings",
       description: "Thoughtfully planned weddings that honour your story, your culture, and your vision — guided with care from the first conversation to the final moment.",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop"
+      image: exploreImage
     },
     {
       title: "Birthdays & Milestones",
       description: "From intimate dinners to meaningful milestones, we curate celebrations that feel personal, refined, and beautifully considered — shaped to honour the moment and the people in it.",
-      image: "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=800&auto=format&fit=crop"
+      image: birthdayImage
     },
     {
       title: "Corporate Events",
       description: "Professional gatherings designed with intention — from conferences and galas to team celebrations — executed with precision and elevated detail.",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop"
+      image: secondAfterImage
     },
     {
       title: "Private Events & Social Gatherings",
       description: "Private dinners, proposals, naming ceremonies, and intimate gatherings — each designed with warmth, elegance, and seamless coordination.",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop"
+      image: diningServiceImage
     }
   ];
 
