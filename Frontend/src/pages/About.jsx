@@ -583,7 +583,7 @@ const About = () => {
       setScrollProgress(progress);
 
       const positions = getImagePositions(progress);
-      
+
       // Update image bounds for CSS clip-path
       setImageBounds({
         left: { top: positions.leftImage, left: 40, width: 340, height: 480 },
@@ -619,7 +619,7 @@ const About = () => {
         style={{ height: '250vh' }}
       >
         {/* Sticky Container */}
-        <div 
+        <div
           ref={stickyContainerRef}
           className="sticky top-0 h-screen overflow-hidden"
         >
@@ -628,24 +628,24 @@ const About = () => {
             <defs>
               <clipPath id="imagesMask" clipPathUnits="userSpaceOnUse">
                 {/* Left Image Rectangle */}
-                <rect 
-                  x={imageBounds.left.left} 
-                  y={imageBounds.left.top} 
-                  width={imageBounds.left.width} 
+                <rect
+                  x={imageBounds.left.left}
+                  y={imageBounds.left.top}
+                  width={imageBounds.left.width}
                   height={imageBounds.left.height}
                 />
                 {/* Right Top Image Rectangle */}
-                <rect 
-                  x={windowWidth - imageBounds.rightTop.right - imageBounds.rightTop.width} 
-                  y={imageBounds.rightTop.top} 
-                  width={imageBounds.rightTop.width} 
+                <rect
+                  x={windowWidth - imageBounds.rightTop.right - imageBounds.rightTop.width}
+                  y={imageBounds.rightTop.top}
+                  width={imageBounds.rightTop.width}
                   height={imageBounds.rightTop.height}
                 />
                 {/* Right Bottom Image Rectangle */}
-                <rect 
-                  x={windowWidth - imageBounds.rightBottom.right - imageBounds.rightBottom.width} 
-                  y={imageBounds.rightBottom.top} 
-                  width={imageBounds.rightBottom.width} 
+                <rect
+                  x={windowWidth - imageBounds.rightBottom.right - imageBounds.rightBottom.width}
+                  y={imageBounds.rightBottom.top}
+                  width={imageBounds.rightBottom.width}
                   height={imageBounds.rightBottom.height}
                 />
               </clipPath>
@@ -657,7 +657,7 @@ const About = () => {
             {/* Left Image */}
             <div
               className="absolute left-6 lg:left-10 w-[280px] lg:w-[340px] h-[380px] lg:h-[480px]"
-              style={{ 
+              style={{
                 top: `${positions.leftImage}px`,
               }}
             >
@@ -671,7 +671,7 @@ const About = () => {
             {/* Right Top Image - beside header */}
             <div
               className="absolute right-6 lg:right-10 w-[240px] lg:w-[300px] h-[200px] lg:h-[250px]"
-              style={{ 
+              style={{
                 top: `${positions.rightTopImage}px`,
               }}
             >
@@ -685,7 +685,7 @@ const About = () => {
             {/* Right Bottom Image */}
             <div
               className="absolute right-6 lg:right-10 w-[180px] lg:w-[220px] h-[160px] lg:h-[200px]"
-              style={{ 
+              style={{
                 top: `${positions.rightBottomImage}px`,
               }}
             >
@@ -753,7 +753,7 @@ const About = () => {
           </div>
 
           {/* Layer 3: White Text - Appears above images (z-30) - Clipped to image bounds */}
-          <div 
+          <div
             className="absolute inset-0 z-30 pointer-events-none"
             style={{ clipPath: 'url(#imagesMask)' }}
           >
@@ -809,6 +809,35 @@ const About = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Celebration Delight Section */}
+      <section className="bg-[#2B0202] py-20 lg:py-28 px-6 lg:px-16">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Main Quote */}
+          <h2
+            className="font-editors-note text-[#FFFEFD] mb-12"
+            style={{
+              fontWeight: 100,
+              fontSize: '45px',
+              lineHeight: '100%'
+            }}
+          >
+            At Hephzibah Luxe, we delight in creating celebrations that feel memorable in all the right ways — beautifully layered, deeply felt, and quietly magical.
+          </h2>
+
+          {/* Description */}
+          <p
+            className="font-newsreader text-[#FFFEFD]"
+            style={{
+              fontWeight: 300,
+              fontSize: '19px',
+              lineHeight: '31px'
+            }}
+          >
+            At the heart of Hephzibah Luxe is a long-standing love for celebration. What began as a natural instinct for planning meaningful gatherings — rooted in care, hospitality, and community — has grown into a thoughtfully structured event planning studio. We bring together years of lived experience with a modern, intentional approach to planning and design. From logistics to guest experience, every element is approached with clarity and care, allowing each celebration to unfold with ease and purpose.
+          </p>
         </div>
       </section>
 
