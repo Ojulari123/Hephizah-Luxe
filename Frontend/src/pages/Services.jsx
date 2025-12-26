@@ -1001,7 +1001,7 @@ const Services = () => {
           {/* CTA Button */}
           <Link
             to="/inquiries"
-            className="inline-flex items-center justify-center border border-[#380F05] border-[1.5px] px-8 py-2 hover:bg-[#380F05] hover:text-[#FFFEFD] transition-colors duration-300 group"
+            className="inline-flex items-center justify-center border border-[#380F05] px-8 py-2 hover:bg-[#380F05] hover:text-[#FFFEFD] transition-colors duration-300 group"
           >
             <span
               className="font-newsreader italic text-[#380F05] text-[20px] group-hover:text-[#FFFEFD]"
